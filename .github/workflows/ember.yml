@@ -1,0 +1,32 @@
+name: Ember CI
+
+on:
+  push:
+    paths: ["ember/**", ".github/workflows/ember.yml"]
+  pull_request:
+    paths: ["ember/**", ".github/workflows/ember.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: ember
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e ".[dev,zstd]"
+      - run: python -m pytest -q
+      - name: Scan the examples (must find the planted backdoors)
+        run: |
+          ember scan examples/clean.lua
+          if ember scan examples/backdoor.lua; then echo "expected findings" && exit 1; fi

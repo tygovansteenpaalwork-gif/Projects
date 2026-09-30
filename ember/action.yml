@@ -1,0 +1,50 @@
+name: Ember Roblox backdoor scan
+description: Scan Roblox models, places and Luau scripts for backdoors and malware.
+branding:
+  icon: shield
+  color: orange
+
+inputs:
+  path:
+    description: Files or folders to scan (space separated).
+    default: "."
+  fail-on:
+    description: Fail at this severity (info, low, medium, high, critical) or "none".
+    default: high
+  upload-sarif:
+    description: Upload results to GitHub code scanning (needs security-events write permission).
+    default: "true"
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+
+    - name: Install Ember
+      shell: bash
+      run: python -m pip install --quiet "${{ github.action_path }}[zstd]"
+
+    - name: Scan
+      id: scan
+      shell: bash
+      env:
+        EMBER_PATHS: ${{ inputs.path }}
+        EMBER_FAIL_ON: ${{ inputs.fail-on }}
+      run: |
+        set +e
+        # shellcheck disable=SC2086
+        ember scan $EMBER_PATHS --format sarif -o ember.sarif --fail-on "$EMBER_FAIL_ON" --color always
+        echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+    - name: Upload SARIF
+      if: inputs.upload-sarif == 'true' && always()
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ember.sarif
+        category: ember
+
+    - name: Result
+      shell: bash
+      run: exit ${{ steps.scan.outputs.exit_code }}
